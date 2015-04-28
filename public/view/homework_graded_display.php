@@ -63,6 +63,11 @@
 				$show_details=true;
 				$click_event='href="#" onclick="return toggleDiv('."'".'sidebysidediff'.$counter."'".');" style="cursor:pointer;"';
 			}
+			else if($test["is_hidden"]==false && $test["title"]=='Test 1 README')
+			{
+				$show_details=true;
+				$click_event='href="#" onclick="return toggleDiv('."'".'sidebysidediff'.$counter."'".');" style="cursor:pointer;"';
+			}
 			else{
 				$show_details=false;
 				$click_event='';
@@ -135,7 +140,8 @@
 				if (isset($test["execute_logfile"]) && trim($test["execute_logfile"])!="") {
 					echo '<div class="diff-block"><b class="sub2">Execution output:</b><pre class="complation_mess">'.htmlentities($test["execute_logfile"]).'</pre></div>';
 				}
-
+				if($test["is_hidden"]==false && $test["title"]=='Test 1 README')
+					echo '<div class="diff-block"><b class="sub2"></b><iframe src=""></iframe></div>';
 				?>
 				<!-- MULTIPLE DIFFS -->
 					<?php
