@@ -141,7 +141,7 @@
 					echo '<div class="diff-block"><b class="sub2">Execution output:</b><pre class="complation_mess">'.htmlentities($test["execute_logfile"]).'</pre></div>';
 				}
 				if($test["is_hidden"]==false && $test["title"]=='Test 1 README')
-					echo '<div class="diff-block"><b class="sub2"></b><iframe src=""></iframe></div>';
+					echo '<div class="diff-block"><b class="sub2"></b></div>';
 				?>
 				<!-- MULTIPLE DIFFS -->
 					<?php
