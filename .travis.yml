@@ -1,25 +1,25 @@
 language: php
 sudo: true
 php:
-    - 5.3
-    - 5.4
-    - 5.5
-    - 5.6
-
+- 5.3
+- 5.4
+- 5.5
+- 5.6
 addons:
-  postgresql: "9.3"
-
+  postgresql: '9.3'
 before_script:
-  - ./tests/setup/before_script.sh
-  - psql -c 'create database test_hwgrading;' -U postgres
-  - psql --host=localhost --username=postgres --command="CREATE GROUP test_hwgrading ROLE postgres"
-  - psql -f TAGradingServer/data/tables.sql -U postgres -d test_hwgrading
-  - psql -f TAGradingServer/data/inserts.sql -U postgres -d test_hwgrading
-  - psql -f tests/setup/travis.sql -U postgres -d test_hwgrading
-
+- ./tests/setup/before_script.sh
+- psql -c 'create database test_hwgrading;' -U postgres
+- psql --host=localhost --username=postgres --command="CREATE GROUP test_hwgrading ROLE postgres"
+- psql -f TAGradingServer/data/tables.sql -U postgres -d test_hwgrading
+- psql -f TAGradingServer/data/inserts.sql -U postgres -d test_hwgrading
+- psql -f tests/setup/travis.sql -U postgres -d test_hwgrading
 script:
-  - phpunit --configuration tests/phpunit.xml
-  - find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
-
+- phpunit --configuration tests/phpunit.xml
+- find -L . -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 notifications:
   email: false
+env:
+  global:
+  - secure: KJZqKVxe2csccDPBhjQjSnYgCLiAmcSZ3iifix3IHF4A3/S68WKwKJo7dud43BzlmwKvr4VRqwUxxOpcCGTKv8q1I8Lw3w9G81BDyAnqsKf7BvAX6uVeEwvxRvV3jc+RpsfzjADulLrDkM/v59p/NBzM0Yej73q+B6ML9pHdr3M=
+  - secure: fTdLkn205OD0UYFmPVQzGD/+8ZIDpjkAwmJZBZoP6l4tUvPNB7xWaH2T7Ce3jTXUfmqrExWpchNyDCPrfIXNCcbzPKww52Zb17rqPmKKRaw7NgvxFQhp4x7VkubvkQI3YuW2CvL2Ke1NInRPET2Nc+q/2lU7UeSIFCqOL1Xu7XE=
