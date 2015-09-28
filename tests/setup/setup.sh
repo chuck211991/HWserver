@@ -1,7 +1,7 @@
 #!/bin/bash
 
-sudo apt-get update > /dev/null
-sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl php5-pgsql > /dev/null
+#sudo apt-get update > /dev/null
+#sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl php5-pgsql > /dev/null
 
 sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default
 # cat /etc/apache2/sites-available/default
@@ -18,7 +18,7 @@ if [ ! -f "$SELENIUM_JAR" ]; then
 fi
 
 echo "Installing Firefox"
-sudo apt-get install firefox -y --no-install-recommends > /dev/null
+#sudo apt-get install firefox -y --no-install-recommends > /dev/null
 
 echo "Setting up config files"
 rm "$TRAVIS_BUILD_DIR/TAGradingServer/toolbox/configs/master.php"
