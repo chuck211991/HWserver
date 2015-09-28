@@ -2,6 +2,7 @@
 
 #sudo apt-get update > /dev/null
 #sudo apt-get install -y --force-yes apache2 libapache2-mod-php5 php5-curl php5-mysql php5-intl php5-pgsql > /dev/null
+sudo apt-get install libapache2-mod-php > /dev/null
 
 sudo sed -i -e "s,/var/www,$(pwd),g" /etc/apache2/sites-available/default
 # cat /etc/apache2/sites-available/default
