@@ -23,7 +23,7 @@ class BaseTestCase extends \Sauce\Sausage\WebDriverTestCase {
  * Determine whether or not we're on TRAVIS as if we're not, we don't want to connect to
  * Sauce Labs and run on their Matrix
  */
-if (getenv('TRAVIS') !== true) {
+if (/*getenv('TRAVIS') == true*/ 1 == 2) {
     BaseTestCase::$browsers = array(
         array(
             'browserName' => 'firefox',
